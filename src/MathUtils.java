@@ -5,9 +5,8 @@ public class MathUtils {
      */
     public static double divideNumbers(int dividend, int divisor) {
         /* Do some casual division ... Super easy ... Shouldn't be any problems here */
-        double res = dividend / divisor;
         /* Return the DEFINITELY CORRECT result */
-        return res;
+        return (double)dividend / divisor;  // Might have to check for zero
     }
 
     /**
@@ -15,6 +14,12 @@ public class MathUtils {
      * Raise the number base to power exp
      */
     public static double raiseToPower(int base, int exp) {
+        if (base == 0) {
+            return 0;
+        } else if (exp == 0) {
+            return 1;
+        }
+
         /* Set initial result to be just the number */
         int res = base;
 
@@ -28,7 +33,7 @@ public class MathUtils {
         /* Multiply the result by the base exp times
             Ex: base = 2, exp = 2
                --> res = 2, then res = 4 */
-        for (int i = 0; i < exp; i++) {
+        for (int i = 1; i < exp; i++) {
            res *= base; 
         }
 
